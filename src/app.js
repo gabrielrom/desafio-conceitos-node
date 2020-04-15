@@ -45,11 +45,13 @@ app.put("/repositories/:id", (request, response) => {
   }
 
   if(likes && !(title && url && techs)){
+    const { title , url , techs } = repositories[repositoryIndex]
+
     const repository = {
       id,
-      title: repositories[repositoryIndex].title,
-      url: repositories[repositoryIndex].url,
-      techs: repositories[repositoryIndex].techs,
+      title,
+      url,
+      techs,
       likes: 0
     }
 
