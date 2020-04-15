@@ -8,7 +8,7 @@ describe("Likes", () => {
       .send({
         url: "https://github.com/Rocketseat/umbriel",
         title: "Umbriel",
-        techs: ["Node", "Express", "TypeScript"]
+        techs: "Node, Express, TypeScript"
       });
 
     let response = await request(app).post(
