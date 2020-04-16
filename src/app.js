@@ -10,10 +10,6 @@ app.use(cors());
 
 const repositories = [];
 
-function transformInArray(techs){
-  return techs.split(',').map(tech => tech.trim())
-}
-
 app.get("/repositories", (request, response) => {
   return response.json(repositories);
 });
@@ -25,7 +21,7 @@ app.post("/repositories", (request, response) => {
     id: uuid(),
     title,
     url,
-    techs: transformInArray(techs),
+    techs,
     likes: 0
   }
 
@@ -64,7 +60,7 @@ app.put("/repositories/:id", (request, response) => {
       id,
       title,
       url,
-      techs: transformInArray(techs),
+      techs,
       likes: repositories[repositoryIndex].likes
     }
   
